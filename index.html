@@ -45,9 +45,7 @@ body {
 <body>
 
     <button id = 'resetButton'> Set Grid Size</button>
-    <div class = 'sketch'>
-
-    </div>
+    <div id = 'sketch'> </div>
 </body>
 
 <script>
@@ -61,9 +59,9 @@ function createGrid(size){
 
     for(let i = 0; i < size * size; i++){
         const div = document.createElement('div');
-        div.ClassList.add('grid-square');
-        div.style.width = `${squareSize} px`;
-        div.style.height = `${squareSize} px`;
+        div.classList.add('grid-square'); 
+        div.style.width = `${squareSize}px`;  
+        div.style.height = `${squareSize}px`; 
         sketch.appendChild(div);
     }
 }
