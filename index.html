@@ -26,6 +26,7 @@ body {
 #sketch{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     width: 960px;
     height: 960px;
     border: 1px solid grey;
@@ -50,18 +51,20 @@ body {
 
 <script>
 
-const sketch = document.getElementById('sketch');
+const sketch = document.getElementById('sketch'); 
 const resetButton = document.getElementById('resetButton');
 
 function createGrid(size){
-    sketch.innerHTML = '';
+    sketch.innerHTML = ''; // ckears the sketch element --> with .innerHTML you can get and assign the element
+
+ // each etch a sketch will be of 960 height and width with size by size squares within
     const squareSize = 960 / size;
 
     for(let i = 0; i < size * size; i++){
-        const div = document.createElement('div');
+        const div = document.createElement('div'); 
         div.classList.add('grid-square'); 
         div.style.width = `${squareSize}px`;  
-        div.style.height = `${squareSize}px`; 
+        div.style.height = `${squareSize}px`; //retrives user's inputed size and assigns it to height + width
         sketch.appendChild(div);
     }
 }
@@ -70,7 +73,7 @@ function resetGrid(){
     let newSize = prompt('Enter a new grid size up to 100');
     newSize = parseInt(newSize);
 
-    if(isNaN(newSize) || newSize < 1 || newSize > 100){
+    if(isNaN(newSize) || newSize < 1 || newSize > 100){ //if the user inputs a non-number or a value > 100 returns invalid
         alert(newSize + ' is an invalid input. Please try again.');
     } else{
         createGrid(newSize);
